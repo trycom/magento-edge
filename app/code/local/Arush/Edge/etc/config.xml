@@ -1,0 +1,95 @@
+<?xml version="1.0"?> 
+<config>
+  <modules>
+      <Arush_Edge> 
+          <version>0.1.0</version>
+          <depends>
+              <!-- no dependencies --> 
+          </depends>
+      </Arush_Edge> 
+  </modules>
+  <global> 
+   
+    <blocks>
+        <adminhtml>
+            <rewrite>
+            </rewrite>
+        </adminhtml>
+    </blocks>
+    
+    <blocks>
+        <edge> 
+            <class>Arush_Edge_Block</class>
+        </edge> 
+    </blocks>
+    <helpers>
+        <edge>
+          <class>Arush_Edge_Helper</class>
+        </edge>
+    </helpers>
+  </global>
+  <adminhtml>
+      <acl>
+          <resources>
+              <admin>
+                  <children>
+                      <system>
+                          <children>
+                              <config>
+                                  <children>
+                                      <edge>
+                                          <title>Edge Settings</title>
+                                      </edge>
+                                  </children>
+                              </config>
+                          </children>
+                      </system>
+                  </children>
+              </admin>
+          </resources>
+      </acl>
+      <events></events> 
+      <translate></translate>
+  </adminhtml> 
+  <frontend>
+      <routers></routers> 
+      <events></events> 
+      <translate></translate> 
+      <layout>
+      	<updates>
+                <edge>
+                    <file>arush/edge.xml</file>
+                </edge>
+        </updates>
+      </layout>
+  </frontend>
+  <admin>
+       <routers>
+          <edge>
+              <use>admin</use>
+              <args>
+                  <module>Arush_Edge</module>
+                  <frontName>edge</frontName>
+              </args>
+          </edge>
+      </routers>
+  </admin>
+  <!-- module defaults --> 
+  <default>
+      <!-- config values -->
+      <edge>
+          <sync>
+            <edge_on><![CDATA[]]></edge_on>
+            <edge_code><![CDATA[]]></edge_code>
+          </sync>
+      </edge>
+  </default>
+  <!--<crontab>
+      <jobs>
+          <get_edge_view>
+              <schedule><cron_expr>*/2 * * * *</cron_expr></schedule>
+              <run><model>edge/observer::cacheFeeds</model></run>
+          </get_edge_view>
+      </jobs>
+  </crontab>-->
+</config>

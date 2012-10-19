@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <default>
+    	<reference name="head">
+    		<block type="core/template" name="edge" before="-" as="edgescripts" template="arush/edge/header-script.phtml"/>
+    	</reference>
+    </default>
+    
+</layout>
